@@ -1,0 +1,26 @@
+Only in ../src: PetitFS.h
+diff -b org/avr_mmcp.cpp ../src/avr_mmcp.cpp
+13c13
+< 
+---
+> #if 0  // Replace ATtiny macros.  whg
+18c18,20
+< 
+---
+> #else  // Replace ATtiny macros. whg
+> #include "pffArduino.h"  // whg
+> #endif  // Replace ATtiny macros. whg
+67c69
+< 
+---
+>   spi_set_divisor(CardType);  // whg
+diff -b org/pff.cpp ../src/pff.cpp
+874c874
+< 	BYTE cs, *rbuff = buff;
+---
+> 	BYTE cs, *rbuff = (BYTE*)buff;  // whg
+928c928
+< 	const BYTE *p = buff;
+---
+> 	const BYTE *p = (BYTE*)buff;  // whg
+Only in ../src: pffArduino.h
