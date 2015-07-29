@@ -1,4 +1,5 @@
 Only in ../src: PetitFS.h
+Only in ../src: PetitSerial.h
 diff -b org/avr_mmcp.cpp ../src/avr_mmcp.cpp
 13c13
 < 

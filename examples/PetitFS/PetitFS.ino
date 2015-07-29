@@ -1,6 +1,13 @@
 // Petit FS test.   
+// For minimum flash use edit pffconfig.h and only enable
+// _USE_READ and either _FS_FAT16 or _FS_FAT32
 
 #include "PetitFS.h"
+#include "PetitSerial.h"
+
+PetitSerial PS;
+// Use PetitSerial instead of Serial.
+#define Serial PS
 
 // The SD chip select pin is currently defined as 10
 // in pffArduino.h.  Edit pffArduino.h to change the CS pin.
@@ -17,10 +24,10 @@ void test() {
   uint8_t buf[32];
   
   // Initialize SD and file system.
-  if (pf_mount(&fs)) errorHalt("pf_mount ");
+  if (pf_mount(&fs)) errorHalt("pf_mount");
   
   // Open test file.
-  if (pf_open("TEST.TXT")) errorHalt("pf_open ");
+  if (pf_open("TEST.TXT")) errorHalt("pf_open");
   
   // Dump test file to Serial.
   while (1) {
